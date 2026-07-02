@@ -1,0 +1,96 @@
+{
+    "name":  "huawei-maas-cockpit",
+    "displayName":  "Huawei MaaS Cockpit",
+    "publisher": "FawadIqbal",
+    "description":  "Monitor Huawei Cloud ModelArts MaaS usage in VS Code.",
+    "icon": "media/MaaS.png",
+    "version":  "0.1.1",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fWd82/Huawei-MaaS-Cockpit.git"
+    },
+    "engines":  {
+                    "vscode":  "^1.125.0"
+                },
+    "categories":  [
+                       "Visualization",
+                       "Other"
+                   ],
+    "activationEvents":  [
+                             "onStartupFinished"
+                         ],
+    "main":  "./extension.js",
+    "contributes":  {
+                        "commands":  [
+                                         {
+                                             "command":  "huawei-maas.configure",
+                                             "title":  "Huawei MaaS: Configure Credentials",
+                                             "icon":  "$(key)"
+                                         },
+                                         {
+                                             "command":  "huawei-maas.open",
+                                             "title":  "Huawei MaaS: Open Cockpit",
+                                             "icon":  "$(dashboard)"
+                                         },
+                                         {
+                                             "command":  "huawei-maas.refresh",
+                                             "title":  "Huawei MaaS: Refresh Statistics",
+                                             "icon":  "$(refresh)"
+                                         },
+                                         {
+                                             "command":  "huawei-maas.clear",
+                                             "title":  "Huawei MaaS: Clear Credentials",
+                                             "icon":  "$(trash)"
+                                         },
+                                         {
+                                             "command":  "huawei-maas.showLogs",
+                                             "title":  "Huawei MaaS: Show Diagnostic Logs",
+                                             "icon":  "$(output)"
+                                         }
+                                     ],
+                        "configuration":  {
+                                              "title":  "Huawei MaaS Cockpit",
+                                              "properties":  {
+                                                                 "huaweiMaaS.region":  {
+                                                                                           "type":  "string",
+                                                                                           "default":  "ap-southeast-1",
+                                                                                           "description":  "Huawei Cloud region and project name."
+                                                                                       },
+                                                                 "huaweiMaaS.timezone":  {
+                                                                                             "type":  "string",
+                                                                                             "default":  "Asia/Dubai",
+                                                                                             "description":  "IANA timezone for monitoring queries."
+                                                                                         },
+                                                                 "huaweiMaaS.refreshInterval":  {
+                                                                                                    "type":  "number",
+                                                                                                    "default":  5,
+                                                                                                    "minimum":  0,
+                                                                                                    "description":  "Refresh interval in minutes; 0 disables it."
+                                                                                                },
+                                                                 "huaweiMaaS.consoleUrl":  {
+                                                                                               "type":  "string",
+                                                                                               "default":  "https://console-intl.huaweicloud.com",
+                                                                                               "description":  "Huawei Cloud console base URL."
+                                                                                           }
+                                                             }
+                                          }
+                    },
+    "scripts":  {
+                    "lint":  "eslint .",
+                    "pretest":  "npm run lint",
+                    "test":  "vscode-test"
+                },
+    "devDependencies":  {
+                            "@types/mocha":  "^10.0.10",
+                            "@types/node":  "24.x",
+                            "@types/vscode":  "^1.125.0",
+                            "@vscode/test-cli":  "^0.0.15",
+                            "@vscode/test-electron":  "^3.0.0",
+                            "eslint":  "^10.5.0",
+                            "globals":  "^17.7.0"
+                        },
+    "overrides":  {
+                      "diff":  "^8.0.4",
+                      "serialize-javascript":  "^7.0.6"
+                  }
+}

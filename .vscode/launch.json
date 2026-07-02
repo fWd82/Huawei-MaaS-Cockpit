@@ -1,0 +1,17 @@
+﻿// Launch the cockpit in an isolated Extension Development Host.
+// Disabling unrelated installed extensions prevents their language/AST trackers
+// from attaching to this extension's source files.
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Run Extension",
+			"type": "extensionHost",
+			"request": "launch",
+			"args": [
+				"--extensionDevelopmentPath=${workspaceFolder}",
+				"--disable-extensions"
+			]
+		}
+	]
+}
